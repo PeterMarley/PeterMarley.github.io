@@ -1,0 +1,80 @@
+:root {
+    --font-standard:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --size-left: 30%;
+    --size-right: calc(100% - var(var(--size-left)));
+    --side-gap: 150px;
+}
+
+/* LEFT AND RIGHT PADDING */
+.content > div {
+    padding: 0 var(--side-gap);
+
+}
+
+@media only screen and (max-width: 600px) {
+    .content > div {
+        padding: 0 20px;
+    }
+}
+ /* CUSTOM FONTS */
+@font-face {
+    font-family: anon;
+    src: url('./fonts/AnonymousPro-Regular.ttf');
+}
+@font-face{
+    font-family: anon-bold;
+    src: url('./fonts/AnonymousPro-Bold.ttf');
+}
+
+/* RESETS */
+
+* {
+    border: 0px solid red;
+    color: white;
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-standard);
+}
+
+body {
+    background-color: rgb(37, 36, 36);
+}
+
+/* LAYOUTS */
+
+.flex-container {
+    display: flex;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.col {
+    flex-direction: column;
+}
+
+/* SECTIONS */
+
+.header-section {
+    background-image: url('./img/ales-nesetril-Im7lZjxeLhg-unsplash.jpg');
+    background-position: center;
+    background-size: 70%;
+    height: 250px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header-section p {
+    width: 30%;
+    font-family: anon-bold, var(--font-standard);
+    font-size: 3rem;
+    font-weight: bolder;
+    color: rgba(0,0,0,0);
+    
+    letter-spacing: 1rem;
+    -webkit-text-stroke: 1px white;
+    background-image: -webkit-linear-gradient(45deg, #333, black,#333 );
+    background-size: 100%;
+    background-clip: text;
+}
