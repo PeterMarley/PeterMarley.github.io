@@ -1,27 +1,20 @@
 :root {
-    --font-standard:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-standard: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --size-left: 30%;
     --size-right: calc(100% - var(var(--size-left)));
-    --side-gap: 150px;
+    --horizontal-gap: 150px;
+    --vertical-gap: 50px;
 }
 
 /* LEFT AND RIGHT PADDING */
-.content > div {
-    padding: 0 var(--side-gap);
 
-}
-
-@media only screen and (max-width: 600px) {
-    .content > div {
-        padding: 0 20px;
-    }
-}
- /* CUSTOM FONTS */
+/* CUSTOM FONTS */
 @font-face {
     font-family: anon;
     src: url('./fonts/AnonymousPro-Regular.ttf');
 }
-@font-face{
+
+@font-face {
     font-family: anon-bold;
     src: url('./fonts/AnonymousPro-Bold.ttf');
 }
@@ -54,7 +47,26 @@ body {
     flex-direction: column;
 }
 
+.grid-container {
+    display: grid;
+}
+
 /* SECTIONS */
+
+.header-section,
+.blurb,
+.projects {
+    padding: var(--vertical-gap) var(--horizontal-gap);
+}
+
+@media only screen and (max-width: 600px) {
+    .header-section,
+    .blurb,
+    .projects {
+        padding: 0 20px;
+    }
+}
+
 
 .header-section {
     background-image: url('/img/ales-nesetril-Im7lZjxeLhg-unsplash.jpg');
@@ -70,11 +82,48 @@ body {
     font-family: anon-bold, var(--font-standard);
     font-size: 3rem;
     font-weight: bolder;
-    color: rgba(0,0,0,0);
-    
+    color: rgba(0, 0, 0, 0);
+    text-transform: uppercase;
+
     letter-spacing: 1rem;
     -webkit-text-stroke: 1px white;
-    background-image: -webkit-linear-gradient(45deg, #333, black,#333 );
+    background-image: -webkit-linear-gradient(45deg, #333, black, #333);
     background-size: 100%;
     background-clip: text;
+}
+
+.blurb {
+    --shadow-x: 5px;
+    --shadow-y: 5px;
+    background: white;
+    box-shadow: 0px 10px 20px -7px grey inset,0px -10px 20px -7px grey inset;;
+    /* clip-path: inset(10px, 0px); */
+}
+
+.blurb > p {
+    color: black;
+}
+
+.projects {
+    --gap : 10px;
+    grid-template-columns: 150px 150px 150px;
+    grid-auto-flow: row;
+    /* grid-template-rows: 150px; */
+    gap: var(--gap);
+    justify-content: space-around;
+    align-items: stretch;
+    justify-items: stretch;
+}
+
+.card {
+    height: 150px;
+    width: 150px;
+}
+
+.card-top {
+    border: 5px solid lightblue;
+    border-radius: 5px;
+    padding: 10px;
+    line-height: 1rem;
+    flex: 1 0 auto;
 }
