@@ -57,7 +57,7 @@ body {
 /* SECTIONS */
 
 .header-section {
-    background-image: url('./img/ales-nesetril-Im7lZjxeLhg-unsplash.jpg');
+    background-image: url('/img/ales-nesetril-Im7lZjxeLhg-unsplash.jpg');
     background-position: center;
     background-size: 70%;
     height: 250px;
