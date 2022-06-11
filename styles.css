@@ -19,6 +19,16 @@
     src: url('./fonts/AnonymousPro-Bold.ttf');
 }
 
+@font-face {
+    font-family: amatic;
+    src: url('./fonts/AmaticSC-Regular.ttf');
+}
+
+@font-face {
+    font-family: amatic-bold;
+    src: url('./fonts/AmaticSC-Bold.ttf');
+}
+
 /* RESETS */
 
 * {
@@ -55,15 +65,17 @@ body {
 
 .header-section,
 .blurb,
-.projects {
+.projects,
+.title {
     padding: var(--vertical-gap) var(--horizontal-gap);
 }
 
 @media only screen and (max-width: 600px) {
     .header-section,
     .blurb,
-    .projects {
-        padding: 0 20px;
+    .projects,
+    .title {
+        padding: 5px 20px;
     }
 }
 
@@ -104,8 +116,13 @@ body {
     color: black;
 }
 
-.bg-dark {
-    
+.title {
+    font-family: anon-bold;
+    font-size: 2rem;
+    color:white;
+    -webkit-text-stroke: 1px black;
+    transform: rotate(-30deg) translatey(120px);
+    transform-origin: center left;
 }
 
 .projects {
@@ -135,6 +152,11 @@ body {
     line-height: 1rem;
     flex: 1 0 auto;
     background-color: white;
+}
+
+.projects>div>div:first-child:hover {
+    border: 5px solid rgb(123, 200, 226);
+    box-shadow: 0px 0px 10px 1px white;
 }
 
 .projects>div>div>img {
