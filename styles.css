@@ -1,9 +1,10 @@
 :root {
     --font-standard: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --size-left: 30%;
-    --size-right: calc(100% - var(var(--size-left)));
-    --horizontal-gap: 150px;
-    --vertical-gap: 50px;
+    /* --color-bg: rgb(37, 36, 36); */
+    --color-bg: black;
+    --padding-vert: 10px;
+    --padding-hori: 10px;
+    --project-card-dim: 250px;
 }
 
 /* LEFT AND RIGHT PADDING */
@@ -40,132 +41,85 @@
 }
 
 body {
-    background-color: rgb(37, 36, 36);
-}
-
-/* LAYOUTS */
-
-.flex-container {
-    display: flex;
-}
-
-.row {
-    flex-direction: row;
-}
-
-.col {
-    flex-direction: column;
-}
-
-.grid-container {
-    display: grid;
+    background-color: var(--color-bg);
 }
 
 /* SECTIONS */
 
-.header-section,
-.blurb,
-.projects,
-.title {
-    padding: var(--vertical-gap) var(--horizontal-gap);
+.viewport{
+    padding: var(--padding-hori) var(--padding-hori);
 }
 
-@media only screen and (max-width: 600px) {
-    .header-section,
-    .blurb,
-    .projects,
-    .title {
-        padding: 5px 20px;
-    }
-}
-
-
-.header-section {
-    background-image: url('/img/ales-nesetril-Im7lZjxeLhg-unsplash.jpg');
-    background-position: center;
-    background-size: 70%;
-    height: 250px;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.header-section p {
-    width: 30%;
-    font-family: anon-bold, var(--font-standard);
-    font-size: 3rem;
-    font-weight: bolder;
-    color: rgba(0, 0, 0, 0);
-    text-transform: uppercase;
-
-    letter-spacing: 1rem;
-    -webkit-text-stroke: 1px white;
-    background-image: -webkit-linear-gradient(45deg, #333, black, #333);
-    background-size: 100%;
-    background-clip: text;
-}
-
-.blurb {
-    --shadow-x: 5px;
-    --shadow-y: 5px;
-    background: white;
-    box-shadow: 0px 10px 20px -7px grey inset,0px -10px 20px -7px grey inset;;
-    /* clip-path: inset(10px, 0px); */
-}
-
-.blurb > p {
-    color: black;
+.viewport {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    min-height: calc(100vh - 20px);
 }
 
 .title {
-    font-family: anon-bold;
-    font-size: 2rem;
-    color:white;
-    -webkit-text-stroke: 1px black;
-    transform: rotate(-30deg) translatey(120px);
-    transform-origin: center left;
+    font-family: amatic-bold;
+    font-size: 48px;
+    margin-bottom: 250px;
 }
 
 .projects {
     display: grid;
-    --gap : 10px;
-    grid-template-columns: 150px 150px 150px;
-    grid-auto-flow: row;
-    column-gap: var(--gap);
-    row-gap: calc(var(--gap) * 3);
-    justify-content: space-evenly;
-    align-items: stretch;
-    justify-items: stretch;
+    justify-content: space-between;
+    grid-template-columns: repeat(5, var(--project-card-dim));
+    grid-template-rows: var(--project-card-dim);
+    grid-auto-rows: var(--project-card-dim);
+    gap: 10px
 }
 
-.projects>div {
-    height: 150px;
-    width: 150px;
+.card {
+    height: 100%;
+    box-sizing: border-box;
+    background: #222;
+    padding: 5px;
+    font-size: 0.8rem;
+    border: 1px solid rgb(131, 131, 131);
+    /* box-shadow: 4px 4px 10px 1px rgb(190, 190, 190); */
 }
 
-.projects>div>div:first-child {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 5px solid lightblue;
+.card-img {
+    max-width: calc(var(--project-card-dim) / 2.5);
     border-radius: 5px;
-    padding: 10px;
-    line-height: 1rem;
-    flex: 1 0 auto;
-    background-color: white;
+    margin: 5px;
+    float: left;
 }
 
-.projects>div>div:first-child:hover {
-    border: 5px solid rgb(123, 200, 226);
-    box-shadow: 0px 0px 10px 1px white;
-}
-
-.projects>div>div>img {
-    width:95%;
-}
-
-.projects>div>div:last-child {
-    display: flex;
+.card-title {
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 10px;
     font-family: anon;
-    padding: 5px 0px 0px 0px;
+    font-weight: bolder;
+    letter-spacing: 0.3rem;
 }
 
+.card-text {
+    text-align: justify;
+}
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 300px) {
+    .title {
+        margin-bottom: 0px;
+    }
+
+    .projects {
+        grid-template-columns: var(--project-card-dim);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .title {
+        margin-bottom: 0px;
+    }
+
+    .projects {
+        grid-template-columns: repeat(2, var(--project-card-dim));
+    }
+}
