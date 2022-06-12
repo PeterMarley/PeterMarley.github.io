@@ -1,13 +1,10 @@
 :root {
     --font-standard: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* --color-bg: rgb(37, 36, 36); */
     --color-bg: black;
     --padding-vert: 10px;
     --padding-hori: 10px;
     --project-card-dim: 250px;
 }
-
-/* LEFT AND RIGHT PADDING */
 
 /* CUSTOM FONTS */
 @font-face {
@@ -60,12 +57,12 @@ body {
 .title {
     font-family: amatic-bold;
     font-size: 48px;
-    margin-bottom: 250px;
+    margin-bottom: auto;
 }
 
 .projects {
     display: grid;
-    justify-content: space-between;
+    justify-content: space-around;
     grid-template-columns: repeat(5, var(--project-card-dim));
     grid-template-rows: var(--project-card-dim);
     grid-auto-rows: var(--project-card-dim);
@@ -78,15 +75,28 @@ body {
     background: #222;
     padding: 5px;
     font-size: 0.8rem;
-    border: 1px solid rgb(131, 131, 131);
+    border: 2px solid rgb(131, 131, 131);
     /* box-shadow: 4px 4px 10px 1px rgb(190, 190, 190); */
 }
 
 .card-img {
-    max-width: calc(var(--project-card-dim) / 2.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    width: calc(var(--project-card-dim) / 2.5);
+    height: calc(var(--project-card-dim) / 2.5);
+    background-position: center;
+    background-size: calc(var(--project-card-dim) / 2.5) calc(var(--project-card-dim) / 2.5);
+    border-radius: 7px;
+    margin: 5px 5px 5px 0px;
+}
+
+.card-img>img {
+
     border-radius: 5px;
     margin: 5px;
-    float: left;
+
 }
 
 .card-title {
@@ -104,15 +114,40 @@ body {
 }
 /* MEDIA QUERIES */
 
-@media screen and (max-width: 300px) {
+
+
+
+
+@media screen and (max-width: 1300px) {
     .title {
         margin-bottom: 0px;
     }
 
     .projects {
-        grid-template-columns: var(--project-card-dim);
+        grid-template-columns: repeat(3, var(--project-card-dim));
     }
 }
+
+@media screen and (max-width: 800px) {
+    .title {
+        margin-bottom: 0px;
+    }
+
+    .projects {
+        grid-template-columns: repeat(2, var(--project-card-dim));
+   
+    }
+}
+
+/* @media screen and (max-width: 600px) {
+    .title {
+        margin-bottom: 0px;
+    }
+
+    .projects {
+        grid-template-columns: repeat(2, var(--project-card-dim));
+    }
+} */
 
 @media screen and (max-width: 600px) {
     .title {
@@ -120,6 +155,6 @@ body {
     }
 
     .projects {
-        grid-template-columns: repeat(2, var(--project-card-dim));
+        grid-template-columns: var(--project-card-dim);
     }
 }
