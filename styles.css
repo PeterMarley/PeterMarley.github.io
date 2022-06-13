@@ -1,5 +1,5 @@
 :root {
-    --font-standard: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-standard: 'Montserrat','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --color-bg: black;
     --padding-vert: 10px;
     --padding-hori: 10px;
@@ -62,21 +62,30 @@ body {
 
 .projects {
     display: grid;
-    justify-content: space-around;
-    grid-template-columns: repeat(5, var(--project-card-dim));
+    justify-content: stretch;
+    grid-template: 1fr / repeat(auto-fill,var(--project-card-dim));
+    grid-auto-rows: 1fr;
+    /* grid-template-columns: repeat(5, var(--project-card-dim));
     grid-template-rows: var(--project-card-dim);
-    grid-auto-rows: var(--project-card-dim);
-    gap: 10px
+    grid-auto-rows: var(--project-card-dim); */
+    gap: 20px
 }
 
 .card {
-    height: 100%;
+    /* height: var(--project-card-dim); */
     box-sizing: border-box;
     background: #222;
     padding: 5px;
     font-size: 0.8rem;
-    border: 2px solid rgb(131, 131, 131);
-    /* box-shadow: 4px 4px 10px 1px rgb(190, 190, 190); */
+    border: 1px solid rgb(77, 76, 76);
+    transition: 0.5s cubic-bezier(.18,.89,.32,1.28);
+    box-shadow: 4px 4px 10px rgb(126, 125, 125);
+}
+
+.card:hover {
+    border: 2px solid white;
+    transform: scale(120%, 120%) translatey(-50px);
+    z-index: 1;
 }
 
 .card-img {
@@ -110,7 +119,8 @@ body {
 }
 
 .card-text {
-    text-align: justify;
+    /* text-align: justify; */
+    line-height: 1.2rem;
 }
 /* MEDIA QUERIES */
 
