@@ -1,1 +1,0 @@
-(()=>{"use strict";document.body.appendChild(function(){let t=document.createElement("div");return t.classList.add("test-class"),t.textContent="test",t}())})();
