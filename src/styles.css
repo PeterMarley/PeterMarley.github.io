@@ -1,5 +1,5 @@
 :root {
-    --font-standard: 'Montserrat','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-standard: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --color-bg: black;
     --padding-vert: 10px;
     --padding-hori: 10px;
@@ -45,13 +45,13 @@ body {
 
 /* SECTIONS */
 
-.viewport{
+.viewport {
     padding: var(--padding-hori) var(--padding-hori);
 }
 
 .viewport {
     display: grid;
-    grid-template: calc(4rem + calc(2*var(--padding-vert))) minmax(100px,3fr) calc(var(--project-card-dim) + calc(var(--padding-hori) * 2)) / 1fr;
+    grid-template: calc(4rem + calc(2*var(--padding-vert))) minmax(100px, 3fr) calc(var(--project-card-dim) + calc(var(--padding-hori) * 2)) / 1fr;
     justify-content: space-between;
     min-height: calc(100vh - 20px);
 }
@@ -69,26 +69,28 @@ body {
 .projects {
     display: grid;
     justify-content: stretch;
-    grid-template: var(--project-card-dim) / repeat(5, calc(var(--project-card-dim)));
-    grid-auto-rows: var(--project-card-dim);
+    grid-template: var(--project-card-dim) /repeat(5, var(--project-card-dim));
     grid-auto-columns: var(--project-card-dim);
+    /* grid-auto-rows: var(--project-card-dim);
+    grid-auto-columns: var(--project-card-dim); */
     /* grid-template-columns: repeat(5, var(--project-card-dim));
     grid-template-rows: var(--project-card-dim);
     grid-auto-rows: var(--project-card-dim); */
-    gap: 20px
+    gap: 25px
 }
 
 .card {
     /* height: var(--project-card-dim); */
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     background: #222;
     padding: 5px;
     width: 100%;
     font-size: 0.8rem;
     border: 1px solid rgb(77, 76, 76);
-    transition: 0.5s cubic-bezier(.18,.89,.32,1.28);
+    transition: 0.5s cubic-bezier(.18, .89, .32, 1.28);
     box-shadow: 4px 4px 10px rgb(126, 125, 125);
-    overflow: scroll;
+    border-radius: 5px;
+    overflow: visible;
     text-overflow: ellipsis;
 }
 
@@ -151,7 +153,7 @@ body {
 
     .projects {
         grid-template-columns: repeat(2, var(--project-card-dim));
-   
+
     }
 }
 
@@ -173,5 +175,5 @@ body {
     .projects {
         grid-template-columns: var(--project-card-dim);
     }
-    
+
 }
