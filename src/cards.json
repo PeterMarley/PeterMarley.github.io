@@ -1,0 +1,26 @@
+{
+    "0": {
+        "title": "Crasio Calculator",
+        "text": "Crasio calculator is a simple web calculator that implements a simple calculator that respects order of operations (PEDMAS). It was initially an exersize of The Odin Project, which did not expect order of operations to be respected, that I went further with.",
+        "images": {
+            "cardOrigin": "./img/crasioCalculator.png",
+            "cardPacked": "2cef2cf3ad688b8b116feeb5857e6f0e.png"
+        } 
+    },
+    "1": {
+        "title": "Budget Keeper",
+        "text": "I was sick of all the bloated budgeting software I had tried so I decided to make my own. You enter what you spend and receive, and it keeps track. Implemented in Java, using an <em>sqlite3</em> database and <em>JavaFX</em> GUI",
+        "images": {
+            "cardOrigin": "./img/budgetKeeper-windowYear.png",
+            "cardPacked": "ea4c326eb6914f8e578e3d8bc33c25d6.png"
+        }
+    },
+    "2": {
+        "title": "Checkers",
+        "text": "The first complex (?) program I ever made. Locally played 2-player Checkers. Enforces all rules. Implemented in Java, with a <em>Swing</em> GUI.",
+        "images": {
+            "cardOrigin": "./img/checkers.png",
+            "cardPacked": "bbc90890c2fdf9a6a5923ec48588f3e5.png"
+        }
+    }
+}
