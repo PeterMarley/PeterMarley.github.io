@@ -1,0 +1,84 @@
+/*///////////////////////////////////////////////*/
+/* CAROUSEL */
+/*///////////////////////////////////////////////*/
+.carousel {
+  --center-offset: var(--project-card-dim);
+  display: grid;
+  position: relative;
+  grid-template: 300px 1fr / 1fr;
+  width: 100%;
+}
+
+.carousel>.slider {
+  --column-gap: 10px;
+
+  display: flex;
+  position: absolute;
+
+  left: calc(50% - calc(calc(var(--column-gap) * 2) + calc(var(--center-offset) / 2)));
+
+  grid-template: 1fr / 1fr;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  /* overflow: hidden; */
+  align-items: center;
+  column-gap: var(--column-gap);
+
+  transition: left 0.2s ease-in-out;
+}
+
+.carousel>.hud {
+  display: flex;
+  justify-content: center;
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 1.2rem;
+  margin: 10px 0px;
+  align-items: flex-end;
+}
+
+.carousel>.hud>div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel>.hud>div.current {
+  color: red;
+}
+
+.carousel>.controls {
+  display: flex;
+  justify-content: space-around;
+}
+
+.carousel>.controls>div {
+  border: 3px solid red;
+  background-color: goldenrod;
+  width: 100px;
+  text-align: center;
+}
+
+.carousel>.controls div:hover {
+  background-color: aqua;
+}
+
+.carousel>.slider>.current {
+  /* margin: 0px 50px; */
+}
+
+
+/* .carousel>.view>.carousel-image>img {
+  max-height: 100%;
+  max-width: 100%;
+  margin: 0px;
+}
+
+.carousel>.view>.carousel-image.off-left {
+  transform: translateX(-2000px);
+  transition: transform 300ms ease-in-out;
+}
+
+.carousel>.view>.carousel-image.off-right {
+  transform: translateX(2000px);
+  transition: transform 300ms ease-in-out;
+} */

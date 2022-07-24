@@ -7,7 +7,10 @@
     --font-size: 11pt;
 }
 
+/*///////////////////////////////////////////////*/
 /* CUSTOM FONTS */
+/*///////////////////////////////////////////////*/
+
 @font-face {
     font-family: anon;
     src: url('./fonts/AnonymousPro-Regular.ttf');
@@ -28,7 +31,9 @@
     src: url('./fonts/AmaticSC-Bold.ttf');
 }
 
+/*///////////////////////////////////////////////*/
 /* RESETS */
+/*///////////////////////////////////////////////*/
 
 * {
     border: 0px solid red;
@@ -43,7 +48,9 @@ body {
     background-color: var(--color-bg);
 }
 
+/*///////////////////////////////////////////////*/
 /* SECTIONS */
+/*///////////////////////////////////////////////*/
 
 .viewport {
     padding: var(--padding-hori) var(--padding-hori);
@@ -51,8 +58,9 @@ body {
 
 .viewport {
     display: grid;
-    grid-template: calc(4rem + calc(2*var(--padding-vert))) minmax(100px, 3fr) calc(var(--project-card-dim) + calc(var(--padding-hori) * 2)) / 1fr;
+    /* grid-template: calc(4rem + calc(2*var(--padding-vert))) minmax(100px, 3fr) calc(var(--project-card-dim) + calc(var(--padding-hori) * 2)) / 1fr; */
     justify-content: space-between;
+    grid-template: 1fr 5fr auto/ 1fr;
     min-height: calc(100vh - 20px);
 }
 
@@ -69,29 +77,29 @@ body {
 .projects {
     display: grid;
     justify-content: stretch;
-    grid-template: var(--project-card-dim) /repeat(5, var(--project-card-dim));
+    grid-template: var(--project-card-dim) / repeat(5, var(--project-card-dim));
     grid-auto-columns: var(--project-card-dim);
-    /* grid-auto-rows: var(--project-card-dim);
-    grid-auto-columns: var(--project-card-dim); */
-    /* grid-template-columns: repeat(5, var(--project-card-dim));
-    grid-template-rows: var(--project-card-dim);
-    grid-auto-rows: var(--project-card-dim); */
+    grid-auto-flow: column;
     gap: 25px
 }
+
+/*///////////////////////////////////////////////*/
+/* PROJECT CARDS */
+/*///////////////////////////////////////////////*/
 
 .card {
     /* height: var(--project-card-dim); */
     /* box-sizing: border-box; */
     background: #222;
     padding: 5px;
-    width: 100%;
+    width: 250px;
+    height: 250px;
     font-size: 0.8rem;
     border: 1px solid rgb(77, 76, 76);
     transition: 0.5s cubic-bezier(.18, .89, .32, 1.28);
     box-shadow: 4px 4px 10px rgb(126, 125, 125);
     border-radius: 5px;
     overflow: visible;
-    text-overflow: ellipsis;
 }
 
 .card:hover {
@@ -130,11 +138,9 @@ body {
     letter-spacing: 0.3rem;
 }
 
+/*///////////////////////////////////////////////*/
 /* MEDIA QUERIES */
-
-
-
-
+/*///////////////////////////////////////////////*/
 
 @media screen and (max-width: 1300px) {
     .title {

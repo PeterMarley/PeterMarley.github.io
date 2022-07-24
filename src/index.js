@@ -1,5 +1,6 @@
 // styles
 import './styles.css';
+import './carousel.css';
 // images
 /* eslint-disable no-unused-vars */
 import bkWindowMonth from './img/budgetKeeper-windowMonth.png';
@@ -10,24 +11,28 @@ import cc from './img/crasioCalculator.png';
 /* eslint-enable no-unused-vars */
 
 // projects data from json
-import projects from './cards.json';
+import projectsJson from './cards.json';
+
+import { createCarousel } from './carousel';
 
 const projectsDiv = document.querySelector('.projects');
 
-(function init() {
-  // for (let obj of projects) {
-  //     buildCard(obj, projectsDiv);
-  // }
-  buildCards(projects, projectsDiv);
-}());
+// (function init() {
+//   // for (let obj of projects) {
+//   //     buildCard(obj, projectsDiv);
+//   // }
+//   buildCards(projectsJson);
+// }());
 
-function buildCards(json, elementToAppendTo) {
-  for (const project of json) {
-    buildCard(json[project], elementToAppendTo);
+function buildCards(projectsJson) {
+  const cards = [];
+  for (const projectId in projectsJson) {
+    cards.push(buildCard(projectsJson[projectId]));
   }
+  return cards;
 }
 
-function buildCard(project, elementToAppendTo) {
+function buildCard(project) {
   const card = document.createElement('div');
   card.classList.add('card');
 
@@ -46,7 +51,10 @@ function buildCard(project, elementToAppendTo) {
   card.appendChild(cardTitle);
   card.appendChild(cardImg);
   card.appendChild(cardText);
-  console.log(card.children);
+  // console.log(card.children);
 
-  elementToAppendTo.appendChild(card);
+  return card;
 }
+
+let x = createCarousel(buildCards(projectsJson))
+document.querySelector('.viewport').appendChild(x);
